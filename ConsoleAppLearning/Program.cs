@@ -1,24 +1,28 @@
-﻿class Program
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppLearning
 {
-    static void Main(string[] args)
+    public class Exercise6
     {
-        int number1 = 8;
-        int number2 = 2;
-        int mathoper1 = -1 + 4 * 6;
-        int mathoper2 = (35 + 5) % 7;
-        int mathoper3 = 14 + -4 * 6 / 11;
-        int mathoper4 = 2 + 15 / 6 * 1 - 7 % 2;
+        public static void Main()
+        {
+            Console.WriteLine("Input a number(integer): ");
+            int j = Convert.ToInt32(Console.ReadLine());
+            
+            int sum = 0;
 
+            while (j != 0)
+            {
+                sum += j % 10;
+                j /= 10;
+            }
 
-        int sum = number1 + number2;
-        int div = number1 / number2;
+            Console.WriteLine("Sum of the digits of the said integer: " + sum);
 
-
-        Console.WriteLine("the sum of two numbers = {0}", sum);
-        Console.WriteLine("the result of dividing two numbers = {0}", div);
-        Console.WriteLine("-1 + 4 * 6 = {0}", mathoper1);
-        Console.WriteLine("(35 + 5) % 7 = {0}", mathoper2);
-        Console.WriteLine("14 + -4 * 6 / 11 = {0}", mathoper3);
-        Console.WriteLine("2 + 15 / 6 * 1 - 7 % 2 = {0}", mathoper4);
+        }
     }
 }
