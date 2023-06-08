@@ -7,25 +7,31 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppLearning
 {
-    public class Homework5
+    public class Homework5_6
     {
 
         public static void Main()
         {
             Student student = new Student("Mykola", "Hlibov", 18, "Kyiv");
-            student.Print();
+            student.DescribeYourself();
 
             Console.WriteLine();
 
             student.AddCourse("Math");
-            student.Print();
+            student.DescribeYourself();
 
             Console.WriteLine();
 
             student.DeleteCourse("Math");
-            student.Print();
+            student.DescribeYourself();
 
-            Course course = new Course("English", "Ellyson Parker", 90);
+            Console.WriteLine();
+
+            Teacher teacher = new Teacher("Ellyson", "Parker", 55, "Lviv", "Physics");
+            teacher.DescribeYourself();
+            Console.WriteLine();
+
+            Course course = new Course("Physics", "Ellyson Parker", 90);
             course.Print();
 
             Console.WriteLine();

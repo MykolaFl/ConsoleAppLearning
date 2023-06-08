@@ -11,7 +11,7 @@ namespace ConsoleAppLearning
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
         public int CourseDuration { get; set; }
-        public int NumberOfStudents { get; private set; }
+        public int NumberOfStudents { get; set; }
 
         public Course(string courseName, string teacherName, int courseDuration)
             : this(courseName, teacherName, courseDuration, 0)
