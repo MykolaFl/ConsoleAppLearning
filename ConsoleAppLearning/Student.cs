@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppLearning
 {
-    public class Student
+    public class Student : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
-        public string City { get; set; }
-        public string[] CoursesAttended { get; private set; }
+        public string[] CoursesAttended { get; set; }
 
         public Student(string firstName, string lastName, int age, string city)
             : this(firstName, lastName, age, city, new string[0])
@@ -20,19 +16,14 @@ namespace ConsoleAppLearning
         }
 
         public Student(string firstName, string lastName, int age, string city, string[] coursesAttended)
+            : base(firstName, lastName, age, city)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-            City = city;
             CoursesAttended = coursesAttended;
         }
 
-        public void Print()
+        public override void DescribeYourself()
         {
-            Console.WriteLine($"Name: {FirstName} {LastName}");
-            Console.WriteLine($"Age: {Age}");
-            Console.WriteLine($"City: {City}");
+            base.DescribeYourself();
             Console.WriteLine("Courses Attended:");
             foreach (var course in CoursesAttended)
             {
