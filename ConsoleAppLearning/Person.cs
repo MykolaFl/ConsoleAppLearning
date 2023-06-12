@@ -21,11 +21,7 @@ namespace ConsoleAppLearning
             City = city;
         }
 
-        public virtual void DescribeYourself()
-        {
-            Console.WriteLine($"Name: {FirstName} {LastName}");
-            Console.WriteLine($"Age: {Age}");
-            Console.WriteLine($"City: {City}");
-        }
+        public virtual void DescribeYourself() => Console.WriteLine($"I am {FirstName} {LastName}, {Age} years old, from the {City}.");
+
     }
 }

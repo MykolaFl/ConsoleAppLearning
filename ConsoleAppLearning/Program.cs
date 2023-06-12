@@ -1,47 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ConsoleAppLearning
 {
-    public class Homework5_6
+    public class Homework7
     {
 
         public static void Main()
         {
-            Student student = new Student("Mykola", "Hlibov", 18, "Kyiv");
-            student.DescribeYourself();
+            Student student1 = new Student("Bob", "Dylan", 21, "Kyiv");
+            Student student2 = new Student("Ringo", "Star", 22, "Lviv");
 
+            Teacher teacher = new Teacher("Albert", "Einstein", 45, "Berlin");
+
+            Course course1 = new Course("Math", "Hlibov", 60);
+            Course course2 = new Course("Physics", "Fedoriv", 50);
+
+            teacher.Students.Add(student1);
+            teacher.Students.Add(student2);
+
+            course1.AddStudent();
+            course2.AddStudent();
+
+            student1.CoursesAttended.Add(course1);
+            student1.CoursesAttended.Add(course2);
+            student2.CoursesAttended.Add(course2);
+
+            teacher.Courses.Add(course1);
+            teacher.Courses.Add(course2);
+
+            student1.DescribeYourself();
             Console.WriteLine();
 
-            student.AddCourse("Math");
-            student.DescribeYourself();
-
+            student2.DescribeYourself();
             Console.WriteLine();
 
-            student.DeleteCourse("Math");
-            student.DescribeYourself();
-
-            Console.WriteLine();
-
-            Teacher teacher = new Teacher("Ellyson", "Parker", 55, "Lviv", "Physics");
             teacher.DescribeYourself();
             Console.WriteLine();
 
-            Course course = new Course("Physics", "Ellyson Parker", 90);
-            course.Print();
+            course1.RemoveStudent();;
 
+            course1.Describe();
             Console.WriteLine();
 
-
-            course.AddStudent();
-            course.Print();
+            course2.Describe();
 
         }
-
-
     }
 }
