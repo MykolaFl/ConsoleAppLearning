@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppLearning
 {
-    internal class Course
+    public class Course
     {
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
-        public int CourseDuration { get; set; }
+        public int Duration { get; set; }
         public int NumberOfStudents { get; set; }
 
-        public Course(string courseName, string teacherName, int courseDuration)
-            : this(courseName, teacherName, courseDuration, 0)
-        {
-        }
-
-        public Course(string courseName, string teacherName, int courseDuration, int numberOfStudents)
+        public Course(string courseName, string teacherName, int duration)
         {
             CourseName = courseName;
             TeacherName = teacherName;
-            CourseDuration = courseDuration;
-            NumberOfStudents = numberOfStudents;
-        }
-
-        public void Print()
-        {
-            Console.WriteLine($"Course Name: {CourseName}");
-            Console.WriteLine($"Teacher Name: {TeacherName}");
-            Console.WriteLine($"Duration: {CourseDuration} hours");
-            Console.WriteLine($"Number of Students: {NumberOfStudents}");
+            Duration = duration;
+            NumberOfStudents = 0;
         }
 
         public void AddStudent()
         {
             NumberOfStudents++;
+        }
+
+        public void RemoveStudent()
+        {
+            NumberOfStudents--;
+        }
+
+        public void Describe()
+        {
+            Console.WriteLine($"Course Name: {CourseName}");
+            Console.WriteLine($"Teacher: {TeacherName}");
+            Console.WriteLine($"Duration: {Duration} hour(s)");
+            Console.WriteLine($"Number of Students: {NumberOfStudents}");
         }
     }
 }
