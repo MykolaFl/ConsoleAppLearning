@@ -8,11 +8,17 @@ namespace ConsoleAppLearning
 {
     public class Student : Person
     {
+        public int Age { get; set; }
+        public string City { get; set; }
         public List<Course> CoursesAttended { get; set; }
 
-        public Student(string firstName, string lastName, int age, string city) : base(firstName, lastName, age, city)
+        public Student(string firstName, string lastName, int age, string city)
         {
-            CoursesAttended = new List<Course> ();
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
+            City = city;
+            CoursesAttended = new List<Course>();
         }
 
         public void AddCourse(Course course)
@@ -20,14 +26,9 @@ namespace ConsoleAppLearning
             CoursesAttended.Add(course);
         }
 
-        public void RemoveCourse(Course course)
+        public void DeleteCourse(Course course)
         {
             CoursesAttended.Remove(course);
-        }
-        public override void DescribeYourself()
-        {
-            base.DescribeYourself();
-            Console.WriteLine($"I am a student and attended {CoursesAttended.Count} course(s).");
         }
 
     }

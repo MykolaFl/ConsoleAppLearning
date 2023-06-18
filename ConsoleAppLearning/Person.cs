@@ -10,18 +10,10 @@ namespace ConsoleAppLearning
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Age { get; set; }
-        public string City { get; set; }
 
-        public Person(string firstName, string lastName, int age, string city)
+        public virtual void DescribeYourself()
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-            City = city;
+            Console.WriteLine($"My name is {FirstName} {LastName}.");
         }
-
-        public virtual void DescribeYourself() => Console.WriteLine($"I am {FirstName} {LastName}, {Age} years old, from the {City}.");
-
     }
 }

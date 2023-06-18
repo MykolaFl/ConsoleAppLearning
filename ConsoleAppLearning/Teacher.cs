@@ -9,24 +9,25 @@ namespace ConsoleAppLearning
     public class Teacher : Person
     {
         public List<Student> Students { get; set; }
-        public List<Course> Courses { get; set; }
+        public List<Course> CourseTaught { get; set; }
 
-        public Teacher(string firstName, string lastName, int age, string city) : base(firstName, lastName, age, city)
+
+        public Teacher(string firstName, string lastName)
         {
+            FirstName = firstName;
+            LastName = lastName;
             Students = new List<Student>();
-            Courses = new List<Course>();
+            CourseTaught = new List<Course>();
+
         }
 
         public void AddStudent(Student student)
         {
             Students.Add(student);
         }
-
         public void AddCourse(Course course)
         {
-            Courses.Add(course);
+            CourseTaught.Add(course);
         }
-
-        public override void DescribeYourself() => Console.WriteLine($"I am a teacher from the {City} and I have {Students.Count} student(s) and {Courses.Count} course(s).");
     }
 }
