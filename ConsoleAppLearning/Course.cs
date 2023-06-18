@@ -10,33 +10,20 @@ namespace ConsoleAppLearning
     {
         public string CourseName { get; set; }
         public string TeacherName { get; set; }
-        public int Duration { get; set; }
-        public int NumberOfStudents { get; set; }
+        public List<Student> Students { get; set; }
+        public List<Teacher> Teachers { get; set; }
 
-        public Course(string courseName, string teacherName, int duration)
+        public Course(string courseName, string teacherName)
         {
             CourseName = courseName;
             TeacherName = teacherName;
-            Duration = duration;
-            NumberOfStudents = 0;
+            Students = new List<Student>();
+            Teachers = new List<Teacher>();
         }
 
-        public void AddStudent()
+        public void AddStudent(Student student)
         {
-            NumberOfStudents++;
-        }
-
-        public void RemoveStudent()
-        {
-            NumberOfStudents--;
-        }
-
-        public void Describe()
-        {
-            Console.WriteLine($"Course Name: {CourseName}");
-            Console.WriteLine($"Teacher: {TeacherName}");
-            Console.WriteLine($"Duration: {Duration} hour(s)");
-            Console.WriteLine($"Number of Students: {NumberOfStudents}");
+            Students.Add(student);
         }
     }
 }

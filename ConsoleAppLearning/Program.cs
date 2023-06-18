@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ConsoleAppLearning
 {
-    public class Homework7
+    public class Homework8
     {
 
         public static void Main()
@@ -11,39 +11,66 @@ namespace ConsoleAppLearning
             Student student1 = new Student("Bob", "Dylan", 21, "Kyiv");
             Student student2 = new Student("Ringo", "Star", 22, "Lviv");
 
-            Teacher teacher = new Teacher("Albert", "Einstein", 45, "Berlin");
+            Course course1 = new Course("Physics", "Mr. Einstein");
+            Course course2 = new Course("Math", "Mr. Escalante");
 
-            Course course1 = new Course("Math", "Hlibov", 60);
-            Course course2 = new Course("Physics", "Fedoriv", 50);
+            student1.AddCourse(course1);
+            student1.AddCourse(course2);
+            student2.AddCourse(course2);
 
-            teacher.Students.Add(student1);
-            teacher.Students.Add(student2);
+            course1.AddStudent(student1);
+            course2.AddStudent(student1);
+            course2.AddStudent(student2);
 
-            course1.AddStudent();
-            course2.AddStudent();
+            Teacher teacher1 = new Teacher("Mr. Albert", "Einstein");
+            Teacher teacher2 = new Teacher("Mr. Jaime", "Escalante");
 
-            student1.CoursesAttended.Add(course1);
-            student1.CoursesAttended.Add(course2);
-            student2.CoursesAttended.Add(course2);
+            teacher1.AddStudent(student1);
+            teacher1.AddStudent(student2);
+            teacher2.AddStudent(student2);
 
-            teacher.Courses.Add(course1);
-            teacher.Courses.Add(course2);
+            teacher1.AddCourse(course1);
+            teacher2.AddCourse(course2);
 
-            student1.DescribeYourself();
-            Console.WriteLine();
+            Console.WriteLine("All Students:");
+            foreach (Student student in new List<Student> { student1, student2 })
+            {
+                student.DescribeYourself();
+                Console.WriteLine("Courses Attended:");
+                var courses = student.CoursesAttended.Select(c => $"{c.CourseName} with {c.TeacherName}");
+                foreach (string course in courses)
+                {
+                    Console.WriteLine($"- {course}");
+                }
+                Console.WriteLine();
+            }
 
-            student2.DescribeYourself();
-            Console.WriteLine();
+            Console.WriteLine("All Teachers:");
+            foreach (Teacher teacher in new List<Teacher> { teacher1, teacher2 })
+            {
+                teacher.DescribeYourself();
+                Console.WriteLine("Courses Taught:");
+                var courses = teacher.CourseTaught.Select(x => x.CourseName);
+                foreach (string course in courses)
+                {
+                    Console.WriteLine($"- {course}");
+                }
+                Console.WriteLine();
+            }
 
-            teacher.DescribeYourself();
-            Console.WriteLine();
-
-            course1.RemoveStudent();;
-
-            course1.Describe();
-            Console.WriteLine();
-
-            course2.Describe();
+            Console.WriteLine("All Courses:");
+            foreach (Course course in new List<Course> { course1, course2 })
+            {
+                Console.WriteLine($"Course: {course.CourseName}");
+                Console.WriteLine($"Teacher: {course.TeacherName}");
+                Console.WriteLine("Students:");
+                var students = course.Students.Select(s => $"{s.FirstName} {s.LastName}");
+                foreach (string student in students)
+                {
+                    Console.WriteLine($"- {student}");
+                }
+                Console.WriteLine();
+            }
 
         }
     }
